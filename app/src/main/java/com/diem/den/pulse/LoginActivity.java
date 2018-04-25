@@ -57,13 +57,25 @@ public class LoginActivity extends AppCompatActivity {
 
                             if (success) {
                                 String name = jsonResponse.getString("name");
-                                int age = jsonResponse.getInt("age");
+                                String secondName = jsonResponse.getString("secondName");
+                                int age = Integer.parseInt(jsonResponse.getString("age"));
+                                int doctor = Integer.parseInt(jsonResponse.getString("doctor"));
 
-                                Intent intent = new Intent(LoginActivity.this, ClientActivity.class);
-                                intent.putExtra("name", name);
-                                intent.putExtra("age", age);
-                                intent.putExtra("username", username);
-                                LoginActivity.this.startActivity(intent);
+
+                                if(doctor==0) {
+                                    Intent intent = new Intent(LoginActivity.this, ClientActivity.class);
+                                    intent.putExtra("name", name);
+                                    intent.putExtra("age", age);
+                                    intent.putExtra("secondName", secondName);
+                                    intent.putExtra("username", username);
+                                    LoginActivity.this.startActivity(intent);
+                                }else {
+                                    Intent intent = new Intent(LoginActivity.this, DoctorActivity.class);
+                                    intent.putExtra("name", name);
+                                    intent.putExtra("secondName", secondName);
+                                    intent.putExtra("username", username);
+                                    LoginActivity.this.startActivity(intent);
+                                }
                             } else {
                                 AlertDialog.Builder builder = new AlertDialog.Builder(LoginActivity.this);
                                 builder.setMessage("Login Failed")

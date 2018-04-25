@@ -16,7 +16,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 public class RegisterActivity extends AppCompatActivity {
-
+private static final String secretWord = "kma2020";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -27,7 +27,7 @@ public class RegisterActivity extends AppCompatActivity {
         final EditText etSecondName =  (EditText) findViewById(R.id.etSecondName);
         final EditText etAge = (EditText) findViewById(R.id.etAge);
         final Button  bRegister = (Button) findViewById(R.id.bRegister);
-
+        final EditText doc =  (EditText) findViewById(R.id.etDoc);
         bRegister.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -36,7 +36,7 @@ public class RegisterActivity extends AppCompatActivity {
                 final String secondName =etSecondName.getText().toString();
                 final String password =etPassword.getText().toString();
                 final int age =Integer.parseInt(etAge.getText().toString());
-
+                final String sW = doc.getText().toString();
                 Response.Listener<String> stringListener = new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
@@ -57,10 +57,17 @@ public class RegisterActivity extends AppCompatActivity {
 
                     }
                 };
+                if (sW.equals(secretWord)){
+                    RegisterRequest registerRequest = new RegisterRequest(name,secondName,age,username,password,1,stringListener);
+                    RequestQueue queue = Volley.newRequestQueue(RegisterActivity.this);
+                    queue.add(registerRequest);
+                }else{
+                    RegisterRequest registerRequest = new RegisterRequest(name,secondName,age,username,password,0,stringListener);
+                    RequestQueue queue = Volley.newRequestQueue(RegisterActivity.this);
+                    queue.add(registerRequest);
+                }
 
-                RegisterRequest registerRequest = new RegisterRequest(name,secondName,age,username,password,stringListener);
-                RequestQueue queue = Volley.newRequestQueue(RegisterActivity.this);
-                queue.add(registerRequest);
+
             }
         });
     }
