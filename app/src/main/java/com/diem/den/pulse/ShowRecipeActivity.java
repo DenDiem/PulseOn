@@ -3,6 +3,7 @@ package com.diem.den.pulse;
 import android.annotation.SuppressLint;
 import android.app.AlertDialog;
 import android.content.Intent;
+import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutCompat;
@@ -13,7 +14,7 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ScrollView;
 import android.widget.TextView;
-
+import android.widget.LinearLayout;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.toolbox.Volley;
@@ -39,18 +40,16 @@ public class ShowRecipeActivity extends AppCompatActivity {
                             JSONArray jArr = new JSONArray(response);
                            // boolean success = jsonObject.getBoolean("success");
                             int i=0;
-
                             JSONObject  part =  jArr.optJSONObject(i++);
-                            LinearLayoutCompat layout = new LinearLayoutCompat(getApplicationContext());
-                            layout.setOrientation(LinearLayoutCompat.VERTICAL);
+                            LinearLayout layout = (LinearLayout) findViewById(R.id.scbr);
 
                             while(part!=null){
 
 
 
                                 TextView newTV = new TextView(getApplicationContext());
-                                newTV.setText("                 MESSAGE:\nUsername: "+part.getString("username") + "\nMedicine: " +part.getString("medicine") + "\nInstruction: " +part.getString("instruction") +"\nTime: " +part.getString("time") );
-                                newTV.setTextColor(0xFFFF0000);
+                                newTV.setText("                 MESSAGE:\nUsername: "+part.getString("username") +"\nDoctor: " +part.getString("doctor")  + "\nMedicine: " +part.getString("medicine") + "\nInstruction: " +part.getString("instruction") +"\nTime: " +part.getString("time") );
+                                newTV.setTextColor(Color.rgb(198,76,255));
 
                                 newTV.setBackground(getDrawable(R.drawable.border));
                                 newTV.setPadding(30,5,5,5);
@@ -61,7 +60,6 @@ public class ShowRecipeActivity extends AppCompatActivity {
                                   part =  jArr.optJSONObject(i++);
 
                             }
-                            setContentView(layout);
 
 
                             if(i==0) {

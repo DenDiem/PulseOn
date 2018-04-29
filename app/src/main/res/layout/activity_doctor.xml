@@ -2,7 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
 
     xmlns:tools="http://schemas.android.com/tools"
-
+    android:background="@drawable/doctor"
     android:orientation="vertical"
     android:padding="10dp"
 
@@ -17,22 +17,25 @@
         android:layout_height="wrap_content"
         android:text="Hello"
         android:textSize="22dp"
+        android:textColor="@android:color/white"
         android:textStyle="bold" />
     <LinearLayout
         android:orientation="vertical"
         android:layout_gravity="center"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
-        android:padding="10dp"
-        android:background="@drawable/border">
+        android:paddingLeft="120dp"
+        android:layout_marginTop="20dp"
+        >
 
         <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-            android:orientation="horizontal"
+            android:orientation="vertical"
             android:layout_width="wrap_content"
 
             android:layout_height="wrap_content"
             >
             <TextView
+
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="sans-serif-smallcaps"
@@ -43,7 +46,7 @@
 
             <TextView
                 android:id="@+id/etUsername"
-
+                android:textColor="@android:color/white"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="null"
@@ -52,7 +55,7 @@
                 android:textStyle="italic" />
         </LinearLayout>
         <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-            android:orientation="horizontal"
+            android:orientation="vertical"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             >
@@ -72,12 +75,12 @@
                 android:textSize="22dp"
                 android:text="null"
                 android:id="@+id/etName"
-
+                android:textColor="@android:color/white"
                 android:layout_marginBottom="10dp"
                 />
         </LinearLayout>
         <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-            android:orientation="horizontal"
+            android:orientation="vertical"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             >
@@ -96,6 +99,7 @@
                 android:textSize="22dp"
                 android:layout_columnSpan="2"
                 android:text="null"
+                android:textColor="@android:color/white"
                 android:id="@+id/etSecondName" />
             android:textStyle="bold"
             android:textSize="22dp"
@@ -107,21 +111,17 @@
             >
 
         </LinearLayout>
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="200dp"
-            android:layout_gravity="center"
-            android:src="@drawable/doc" />
+
     </LinearLayout>
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:orientation="horizontal"
         android:layout_width="wrap_content"
         android:layout_height="100dp"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="175dp"
         >
 
         <Button
-
+            android:background="@color/background_color"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/bRecipe"
@@ -129,6 +129,7 @@
             android:layout_gravity="center"
             android:text="Recipe" />
         <Button
+            android:background="@color/background_color"
             android:layout_marginLeft="150dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

@@ -19,7 +19,7 @@ public class RecipeRequestout extends StringRequest {
         super(Method.POST, RECIPE_REQUEST_URL, listener, null);
         params = new HashMap<>();
         params.put("username", username);
-        params.put("doctorUN", doctorUN);
+        params.put("doctor", doctorUN);
         params.put("medicine", medicine);
         params.put("instruction", instruction);
         params.put("time", time);
